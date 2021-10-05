@@ -27,14 +27,13 @@ router.post('/new', (req, res) => {
 });
 
 router.delete('/delete/:id', (req, res) => {
-  console.log(req.params);
   const { id } = req.params;
   characters.removeCharacter(parseInt(id));
   res.send('Deleted');
 });
+
 router.put('/update/:id', (req, res) => {
   const { id } = req.params;
-  // const { username, role } = req.body;
   const dataUpdate = { id: parseInt(id), ...req.body };
   characters.updateCharacter(dataUpdate);
   res.send('Updated');
